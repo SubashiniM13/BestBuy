@@ -12,7 +12,7 @@ Scenario Outline: Adding different items to the cart
 Given I am on the BestBuy home page
 When I search for a product named <"product_name">
 And I select the product from the search results
-And I click the "Add to Cart" button
+And I click the Add to Cart button
 Then The item <"product_name"> should be added to the cart
 And The cart should reflect the correct quantity and details of <"product_name">
 
@@ -49,7 +49,7 @@ Then my wishlist should contain:
 Scenario: User enters an invalid shipping zipcode 
 
 Given the user is on the your Cart page
-And the user has added items to the cart
+And the user clicks on shipping to zipcode
 When the user enters "99999" as the shipping pincode
 And the user proceeds to update location
 Then the system should display an error message indicating that the shipping pincode is invalid
@@ -97,4 +97,4 @@ Then my wishlist should contain:
 | Product          | Quantity | Price   |
 | ps5 controller   | 1        | 69.99   |
 | Sony speaker     | 1        | 39.99   |
-#| Panasonic Camera | 1        | 479.99  |
+| Panasonic Camera | 1        | 479.99  |

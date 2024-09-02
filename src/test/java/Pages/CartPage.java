@@ -16,9 +16,10 @@ public class Cartpage {
 		PageFactory.initElements(driver, this);
 	}
  
-	By cart = By.className("cart-label");
+	@FindBy(xpath = "/*[@class='cart-label']")
+	WebElement cart;
 	public void clickCart() {
-		driver.findElement(cart).click();
+		cart.click();
 	}
 	
 //	@FindBy(xpath = "//*[@id='gh-search-input']")
@@ -39,6 +40,12 @@ public class Cartpage {
     WebElement addToCart;
     public void addToCart() {
     	addToCart.click();
+    }
+    
+    @FindBy(xpath = "//span[text()='Saved Items']")
+    WebElement savedItems;
+    public void savedItems() {
+    	savedItems.click();
     }
     
     @FindBy(xpath = "//button[contains(@class,'c-button-unstyled flex')])[1]")
