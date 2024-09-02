@@ -1,65 +1,128 @@
 package StepDefinition;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
+import Pages.CartPage;
+import Pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Cart {
 
-	WebDriver driver = new ChromeDriver();
+	public static WebDriver driver;
+	
+	HomePage hp;
+	CartPage cp;
+	
+//	Robot robot = new Robot();
 
-    @Given("I am on the BestBuy home page")
-    public void i_am_on_the_bestbuy_home_page() {
-        driver.get("https://www.bestbuy.com");
-    }
-    
-    @When("I select the country option if needed")
-    public void i_select_the_country_option_if_needed() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        Actions action = new Actions(driver);
-
-        WebElement countrySelector = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/a[2]/img"));
-        js.executeScript("arguments[0].click();", countrySelector);
-    }
-
-    @When("I search for a product named {string}")
-    public void i_search_for_a_product_named(String productName) {
-        WebElement searchBox = driver.findElement(By.id("search-input"));
-        searchBox.sendKeys(productName);
-        searchBox.submit();
+    @Given("I am on the basepage")
+    public void i_am_on_the_basepage() throws AWTException {
+    	driver = new ChromeDriver();
+    	driver.get("https://www.bestbuy.com");
+        driver.manage().window().maximize();
+        hp= new HomePage(driver);
+        cp= new CartPage(driver);
     }
 
-    @When("I select the product from the search results")
-    public void i_select_the_product_from_the_search_results() {
-        WebElement product = driver.findElement(By.cssSelector(".sku-item"));
-        product.click();
+    @When("I select country if needed")
+    public void i_select_country_if_needed() {
+//      JavascriptExecutor js = (JavascriptExecutor) driver;
+//      Actions action = new Actions(driver);
+//
+//      WebElement countrySelector = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/a[2]/img"));
+//      js.executeScript("arguments[0].click();", countrySelector);
+  	
+    	hp.selectCountry();
     }
 
-    @When("I choose any necessary options if applicable")
-    public void i_choose_any_necessary_options_if_applicable() {
-        // Implementation for selecting options if needed
+    @Then("the user close the location popup")
+    public void the_user_close_the_location_popup() throws InterruptedException	{
+    	hp.alerthandle();
     }
 
-    @When("I click the {string} button")
-    public void i_click_the_button(String buttonText) {
-        WebElement button = driver.findElement(By.xpath("//button[text()='" + buttonText + "']"));
-        button.click();
+    @When("I search for a product named <{string}>")
+    public void i_search_for_a_product_named(String string) {
+    	cp.clickSearch();       
     }
 
-    @Then("The item {string} should be added to the cart")
-    public void the_item_should_be_added_to_the_cart(String productName) {
-        // Verification code to ensure the product is added to the cart
+    @Then("The item <{string}> should be added to the cart")
+    public void the_item_should_be_added_to_the_cart(String string) {
+        
     }
 
-    @Then("The cart should reflect the correct quantity and details of {string}")
-    public void the_cart_should_reflect_the_correct_quantity_and_details_of(String productName) {
-        // Verification code to ensure the cart has correct details
+    @Then("The cart should reflect the correct quantity and details of <{string}>")
+    public void the_cart_should_reflect_the_correct_quantity_and_details_of(String string) {
+        
     }
+
+//Scenario
+    @When("I search for {string}")
+    public void i_search_for(String string) {
+        
+    }
+
+    @When("I add {int} {string} to the cart")
+    public void i_add_to_the_cart(Integer int1, String string) {
+        
+    }
+
+    @Then("the cart should contain:")
+    public void the_cart_should_contain(io.cucumber.datatable.DataTable dataTable) {
+        
+    }
+
+    @When("I add {int} {string} to my wishlist\\/saved items")
+    public void i_add_to_my_wishlist_saved_items(Integer int1, String string) {
+        
+    }
+
+    @Then("my wishlist should contain:")
+    public void my_wishlist_should_contain(io.cucumber.datatable.DataTable dataTable) {
+        
+    }
+
+    @When("I add {string} to my wishlist")
+    public void i_add_to_my_wishlist(String string) {
+        
+    }
+
+//Scenario
+    @Given("the user is on the your Cart page")
+    public void the_user_is_on_the_your_cart_page() {
+        
+    }
+
+    @Given("the user has added items to the cart")
+    public void the_user_has_added_items_to_the_cart() {
+        
+    }
+
+    @When("the user enters {string} as the shipping pincode")
+    public void the_user_enters_as_the_shipping_pincode(String string) {
+        
+    }
+
+    @When("the user proceeds to update location")
+    public void the_user_proceeds_to_update_location() {
+        
+    }
+
+    @Then("the system should display an error message indicating that the shipping pincode is invalid")
+    public void the_system_should_display_an_error_message_indicating_that_the_shipping_pincode_is_invalid() {
+        
+    }
+
+
 }
