@@ -7,7 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class BaseSteps {
+import pages.*;
+public class Basesteps {
 
 //	WebDriver driver = new ChromeDriver();
 //
@@ -24,5 +25,5 @@ public class BaseSteps {
 //
 //    driver.quit();
 
-}
+//}
 }

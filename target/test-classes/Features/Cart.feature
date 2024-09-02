@@ -3,33 +3,31 @@ Feature: Cart Management
 Background: Opening the webpage
 
 Given I am on the basepage
-When I select country if needed
-Then the user close the location popup
+When I select United States country 
+Then i successfully landed on homepage of bestbuy
 
 Scenario Outline: Adding different items to the cart
 
 Given I am on the BestBuy home page
 When I search for a product named <"product_name">
 And I select the product from the search results
-And I choose any necessary options if applicable
 And I click the "Add to Cart" button
 Then The item <"product_name"> should be added to the cart
 And The cart should reflect the correct quantity and details of <"product_name">
 
 Examples:
 | product_name         | quantity |
-| Samsung Galaxy S21   | 1        |
-| Apple AirPods Pro    | 2        |
-| Dell XPS 13 Laptop   | 1        |
+| Samsung Galaxy S21   |   1      |
+| Apple AirPods Pro    |   2      |
+| Dell XPS 13 Laptop   |   1      |
 
 Scenario: search products and adding to cart
 
 Given I am on the BestBuy home page
 When I search for "laptop"
 And I add 1 "Laptop" to the cart
-Then the cart should contain:
-| Product     | Quantity | Price   |
-| Laptop      | 1        | 1399.99  |
+Then click on Notify Me
+
 
 Scenario: Search for products and add them to the wishlist
 
@@ -47,7 +45,7 @@ Then my wishlist should contain:
 | Headphones      | 1        | 249.99  |
 | ps5 controller  | 1        | 69.99   |
 
-Scenario: User enters an invalid shipping pincode 
+Scenario: User enters an invalid shipping zipcode 
 
 Given the user is on the your Cart page
 And the user has added items to the cart

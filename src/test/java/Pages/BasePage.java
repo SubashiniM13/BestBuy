@@ -1,6 +1,6 @@
-package Pages;
+package pages;
 
-public class BasePage {
+public class Basepage {
 
 	
 

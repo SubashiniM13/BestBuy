@@ -9,9 +9,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features="Features",
 		glue="StepDefinition",
-		plugin={"pretty","html:target/cucumber.html"},
-		monochrome=true,
-		tags="not @smoke")  
+//		plugin={"pretty","html:target/cucumber.html"},
+		monochrome=true)  
 
 public class Runner {
 
