@@ -1,4 +1,4 @@
-package StepDefinition;
+package stepDefinition;
 
 import static org.testng.Assert.assertEquals;
 
@@ -55,6 +55,41 @@ public class stepdefinition {
 //    	System.out.println(hp.validatingHomepage());
     	assertEquals(hp.validatingHomepage(),true);	
         }
+    
+    @Given("I am on the BestBuy home page")
+    public void i_am_on_the_best_buy_home_page() {
+        cp.clickSearch();
+    }
+
+    @When("I search for a product named <{string}>")
+    public void i_search_for_a_product_named(String string) {
+        cp.typeProduct("laptop");
+    }
+
+    @When("I select the product from the search results")
+    public void i_select_the_product_from_the_search_results() {
+        cp.clickSearch();	
+        	
+        
+        	
+        
+    }
+
+    @When("I click the {string} button")
+    public void i_click_the_button(String string) {
+        cp.addToCart();
+    }
+
+    @Then("The item <{string}> should be added to the cart")
+    public void the_item_should_be_added_to_the_cart(String string) {
+        cp.clickCart();
+    }
+
+//    @Then("The cart should reflect the correct quantity and details of <{string}>")
+//    public void the_cart_should_reflect_the_correct_quantity_and_details_of(String string) {
+//       
+//    }
+
 //
 //    @When("I search for a product named <{string}>")
 //    public void i_search_for_a_product_named(String string) {

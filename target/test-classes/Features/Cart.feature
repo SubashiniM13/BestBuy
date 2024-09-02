@@ -4,7 +4,8 @@ Background: Opening the webpage
 
 Given I am on the basepage
 When I select United States country 
-Then i successfully landed on homepage of bestbuy
+Then i successfully landed on homepage of bestbuy	
+
 
 Scenario Outline: Adding different items to the cart
 
@@ -96,4 +97,4 @@ Then my wishlist should contain:
 | Product          | Quantity | Price   |
 | ps5 controller   | 1        | 69.99   |
 | Sony speaker     | 1        | 39.99   |
-| Panasonic Camera | 1        | 479.99  |
+#| Panasonic Camera | 1        | 479.99  |

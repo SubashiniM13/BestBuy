@@ -59,12 +59,11 @@ public class Homepage {
 			robo.keyRelease(KeyEvent.VK_ENTER);
 
 			Thread.sleep(500);
-			
-			
+				
 		}catch(AWTException e) {
 			e.printStackTrace();
 		}
-	}
+			}
 	
 	public boolean validatingHomepage(){
 	
